@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    ports:
+      - "5001:5000"
+    environment:
+      FLASK_APP: app.py
+      FLASK_ENV: production
+      MYSQL_USER: root
+      MYSQL_PASSWORD: omer2002
+      MYSQL_DB: Sports_db
+      MYSQL_HOST: db
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: omer2002
+      MYSQL_DATABASE: Sports_db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: omer2002
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:

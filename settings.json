@@ -1,0 +1,18 @@
+{
+    "sqltools.connections": [
+        {
+            "name": "Local MySQL",
+            "driver": "MySQL",
+            "server": "localhost",
+            "port": 3306,
+            "database": "Sports_db",
+            "username": "root",
+            "password": "Omer2002",
+            "pooling": {
+                "maxIdleTime": 30000,
+                "min": 1,
+                "max": 10
+            }
+        }
+    ]
+}

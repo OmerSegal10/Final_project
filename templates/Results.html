@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Results</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Results</h1>
+        <h2>Football Teams</h2>
+        <ul>
+            {% for team, percentage in football_percentages.items() %}
+            <li>{{ team }}: {{ percentage }}%</li>
+            {% endfor %}
+        </ul>
+        <h2>Basketball Teams</h2>
+        <ul>
+            {% for team, percentage in basketball_percentages.items() %}
+            <li>{{ team }}: {{ percentage }}%</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+
+</html>
+
+
+
+

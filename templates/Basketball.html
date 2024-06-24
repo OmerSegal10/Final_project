@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Choose Your Favorite Basketball Team</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Choose Your Favorite Basketball Team</h1>
+        <form method="post">
+            {% for team in Teams %}
+            <div class="radio-option">
+                <input type="radio" name="team" value="{{ team['id'] }}" id="team{{ team['id'] }}" required>
+                <label for="team{{ team['id'] }}">{{ team['name'] }}</label>
+            </div>
+            {% endfor %}
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+
+</html>
+
+
+
