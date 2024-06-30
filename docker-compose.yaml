@@ -1,0 +1,51 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    ports:
+      - "5001:5000"
+    environment:
+      FLASK_APP: app.py
+      FLASK_ENV: production
+      MYSQL_USER: root
+      MYSQL_PASSWORD: omer2002
+      MYSQL_DB: Sports_db
+      MYSQL_HOST: db
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: omer2002
+      MYSQL_DATABASE: Sports_db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: omer2002
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
+#version: "3.8"
+
+#services:
+#  web:
+#    build: .
+#    ports:
+#      - "5000:5000"
+#    environment:
+#      - MONGO_URI=mongodb://root:omer2002@mongodb:27017/Sports_db
+#    depends_on:
+#      - mongodb
+
+#  mongodb:
+#    image: mongo:latest
+#    ports:
+#      - "27017:27017"
+#    volumes:
+#      - mongo-data:/data/db
+
+#volumes:
+#  mongo-data:

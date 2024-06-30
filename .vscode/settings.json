@@ -1,0 +1,28 @@
+{
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default",
+        "enableSsl": "Disabled"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3306,
+      "driver": "MySQL",
+      "name": "Final_project",
+      "database": "Sports_db",
+      "username": "root",
+      "password": "omer2002"
+    }
+  ],
+  "python.testing.pytestArgs": ["."],
+  "python.testing.unittestEnabled": true,
+  "python.testing.pytestEnabled": false,
+  "python.testing.unittestArgs": [
+    "-v",
+    "-s",
+    "./templates",
+    "-p",
+    "*test.py"
+  ]
+}
