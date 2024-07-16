@@ -1,5 +1,5 @@
 # Use the official MySQL image from the Docker Hub
-FROM mysql:8.0
+FROM db-app:latest
 
 # Copy the database schema file into the container
 COPY Sports_db.sql /docker-entrypoint-initdb.d/

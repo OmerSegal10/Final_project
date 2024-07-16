@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app.py-deployment
+  namespace: default
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: app.py
+  template:
+    metadata:
+      labels:
+        app: app.py
+    spec:
+      containers:
+          - name: app.py
+      image: omersegal10/app.py:latest
+      ports:
+      - containerPort: 5000
