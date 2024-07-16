@@ -35,7 +35,7 @@ pipeline {
 
         stage("Push Docker image") {
             when {
-                branch 'main'
+                branch 'feature'
             }
             steps {
                 script {
@@ -49,18 +49,18 @@ pipeline {
         stage("Create Pull Request") {
             when {
                 not {
-                    branch 'main'
+                    branch 'feature'
                 }
             }
             steps {
                 script {
                     def branchName = env.BRANCH_NAME
-                    def pullRequestTitle = "Merge ${branchName} into main"
+                    def pullRequestTitle = "Merge ${branchName} into feature"
                     def pullRequestBody = "Automatically generated merge request for branch ${branchName}"
 
                     sh """
                         curl -X POST -H "Authorization: token ${GITHUB_TOKEN}" \
-                        -d '{ "title": "${pullRequestTitle}", "body": "${pullRequestBody}", "head": "${branchName}", "base": "main" }' \
+                        -d '{ "title": "${pullRequestTitle}", "body": "${pullRequestBody}", "head": "${branchName}", "base": "feature" }' \
                         ${GITHUB_API_URL}/repos/${GITHUB_REPO}/pulls
                     """
                 }
